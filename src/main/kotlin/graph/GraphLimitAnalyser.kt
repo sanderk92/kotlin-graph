@@ -7,7 +7,7 @@ class GraphLimitAnalyser {
 
     /**
      * A limit analysis checks for each [Block] in each [Bar] of a [Graph] whether it is included when the given limit
-     * is enforced, meaning its power including the powers of all blocks supporting it results in a value below the
+     * is enforced, meaning its value including the values of all blocks supporting it results in a value below the
      * limit.
      *
      * Included (within limit), and when applicable partial (crossing limit) and excluded blocks (outside of limit) are
@@ -38,11 +38,9 @@ class GraphLimitAnalyser {
     }
 
     /**
-     * Recursively iterates over the blocks in the remainder bar.
-     *
-     * [remainderBar] + [block] + [currentBar] is the total bar we are analysing. Every iteration, the [currentBar]
-     * grows with the [block] and the [remainderBar] is split into the [block] and [remainderBar] for the next
-     * iteration.
+     * Recursively iterates over the blocks in the remainder bar. [remainderBar] + [block] + [currentBar] is the total
+     * bar we are analysing. Every iteration, the [currentBar] grows with the [block] and the [remainderBar] is split
+     * into the [block] and [remainderBar] for the next iteration.
      */
     private tailrec fun analyse(
         remainderBar: Bar,
